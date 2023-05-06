@@ -1,11 +1,12 @@
 {
-  "name": "node-starter",
+  "name": "sqs-consumer-starter",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sqs-consumer": "canary"
   }
 }
