@@ -13,5 +13,9 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 
-  initConsumer();
+  const consumer = initConsumer();
+
+  // Add your use case below, the rest of the setup has already been sorted out for you above.
+
+  consumer.start();
 });

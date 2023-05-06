@@ -71,7 +71,7 @@ const initConsumer = () => {
     debug(option, value);
   });
 
-  consumer.start();
+  return consumer;
 };
 
 module.exports = initConsumer;
