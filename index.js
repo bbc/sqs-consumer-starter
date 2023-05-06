@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3010;
 const path = require('path');
+const sqs = require('./sqs');
 const initConsumer = require('./consumer');
 
 app.use(express.static('static'));
@@ -11,11 +12,17 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-
-  const consumer = initConsumer();
+  // Edit these options if you need to
+  const options = {
+    queueUrl: 'some-url',
+    sqs,
+    handleMessage: async (msg) => {
+      debug('Handled a message...');
+      debug(msg);
+    },
+  };
+  const consumer = initConsumer(options);
 
   // Add your use case below, the rest of the setup has already been sorted out for you above.
-
   consumer.start();
 });

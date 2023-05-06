@@ -3,26 +3,10 @@ const Debug = require('debug');
 
 const debug = Debug('sqs-consumer-starter');
 
-const sqsMock = {
-  send: async () => {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 2000);
-    });
-    return [];
-  },
-};
-
-const initConsumer = () => {
+const initConsumer = (options) => {
   console.log('Starting SQS Consumer now...');
 
-  const consumer = new Consumer({
-    queueUrl: 'some-url',
-    sqs: sqsMock,
-    handleMessage: async (msg) => {
-      debug('Handled a message...');
-      debug(msg);
-    },
-  });
+  const consumer = new Consumer(options);
 
   consumer.on('response_processed', () => {
     debug('response_processed');
