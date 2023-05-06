@@ -1,3 +1,6 @@
 {
-  "startCommand": "npm start"
+  "startCommand": "npm start",
+  "env": {
+    "DEBUG": "sqs-consumer,sqs-consumer-starter"
+  }
 }
