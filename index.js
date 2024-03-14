@@ -1,14 +1,17 @@
-const express = require('express');
+import express, { static as expressStatic } from 'express';
+import { resolve } from 'node:path';
+import debug from 'debug';
+
+import sqs from './sqs.js';
+import initConsumer from './consumer.js';
+
 const app = express();
 const port = 3010;
-const path = require('path');
-const sqs = require('./sqs');
-const initConsumer = require('./consumer');
 
-app.use(express.static('static'));
+app.use(expressStatic('static'));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve('pages/index.html'));
+  res.sendFile(resolve('pages/index.html'));
 });
 
 app.listen(port, () => {
