@@ -7,4 +7,4 @@ const sqs = {
   },
 };
 
-module.exports = sqs;
+export default sqs;

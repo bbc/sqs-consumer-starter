@@ -1,30 +1,30 @@
-const express = require('express');
-const path = require('path');
-const debug = require('debug')('sqs-consumer');
+import express, { static as expressStatic } from 'express';
+import { resolve } from 'node:path';
+import debug from 'debug';
 
-const sqsClient = require('./sqs');
-const startConsumer = require('./consumer');
+import sqs from './sqs.js';
+import initConsumer from './consumer.js';
 
 const app = express();
 const port = 3010;
 
-app.use(express.static('static'));
+app.use(expressStatic('static'));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve('pages/index.html'));
+  res.sendFile(resolve('pages/index.html'));
 });
 
 app.listen(port, () => {
   // Edit these options if you need to
   const options = {
     queueUrl: 'some-url',
-    sqs: sqsClient,
+    sqs,
     handleMessage: async (msg) => {
       debug('Handled a message...');
       debug(msg);
     },
   };
-  const consumer = startConsumer(options);
+  const consumer = initConsumer(options);
 
   // Add your use case below, the rest of the setup has already been sorted out for you above.
   consumer.start();

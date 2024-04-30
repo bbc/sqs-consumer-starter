@@ -1,4 +1,4 @@
-const { Consumer } = require('sqs-consumer');
+import { Consumer } from 'sqs-consumer';
 
 const initConsumer = (options) => {
   console.log('Starting SQS Consumer now...');
@@ -8,4 +8,4 @@ const initConsumer = (options) => {
   return consumer;
 };
 
-module.exports = initConsumer;
+export default initConsumer;
