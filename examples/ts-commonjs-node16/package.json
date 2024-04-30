@@ -1,0 +1,19 @@
+{
+  "name": "sqs-consumer-starter",
+  "version": "0.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "tsx index.ts"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sqs-consumer": "^10.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5",
+    "tsx": "4.7.3"
+  }
+}
