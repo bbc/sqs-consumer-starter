@@ -1,0 +1,6 @@
+{
+  "startCommand": "bun run start",
+  "env": {
+    "DEBUG": "sqs-consumer,sqs-consumer-starter"
+  }
+}

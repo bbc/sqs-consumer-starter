@@ -1,0 +1,21 @@
+{
+  "name": "sqs-consumer-bun",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/debug": "^4.1.12",
+    "@types/express": "^4.17.21"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@bbc/sqs-consumer": "npm:@jsr/bbc__sqs-consumer@11.0.0-canary.3",
+    "debug": "^4.3.5",
+    "express": "^4.19.2"
+  }
+}
