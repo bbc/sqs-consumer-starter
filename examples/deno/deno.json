@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
+  "imports": {
+    "@bbc/sqs-consumer": "jsr:@bbc/sqs-consumer@^11.0.0-canary.4"
+  }
+}

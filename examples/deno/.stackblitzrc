@@ -1,0 +1,7 @@
+{
+  "startCommand": "deno task dev",
+  "env": {
+    "NODE_OPTIONS": "--trace-warnings",
+    "DEBUG": "sqs-consumer,sqs-consumer-starter"
+  }
+}
