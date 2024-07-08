@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "docker:up": "./initDockerStack.sh",
-    "start": "npm run docker:up && tsx index.ts"
+    "start": "npm run docker:up && DEBUG=sqs-consumer,sqs-consumer-starter tsx index.ts"
   },
   "dependencies": {
     "express": "^4.19.2",
