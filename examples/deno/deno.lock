@@ -2,15 +2,15 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "jsr:@bbc/sqs-consumer@^11.0.0-canary.4": "jsr:@bbc/sqs-consumer@11.0.0-canary.4",
-      "npm:@aws-sdk/client-sqs@^3.600.0": "npm:@aws-sdk/client-sqs@3.609.0_@aws-sdk+client-sts@3.609.0__@aws-sdk+client-sso-oidc@3.609.0___@aws-sdk+client-sts@3.609.0___@aws-sdk+client-sts@3.609.0_@aws-sdk+client-sso-oidc@3.609.0__@aws-sdk+client-sts@3.609.0___@aws-sdk+client-sso-oidc@3.609.0____@aws-sdk+client-sts@3.609.0____@aws-sdk+client-sts@3.609.0__@aws-sdk+client-sts@3.609.0___@aws-sdk+client-sso-oidc@3.609.0____@aws-sdk+client-sts@3.609.0_____@aws-sdk+client-sso-oidc@3.609.0___@aws-sdk+client-sso-oidc@3.609.0",
+      "jsr:@bbc/sqs-consumer@^11.0.0-canary.6": "jsr:@bbc/sqs-consumer@11.0.0-canary.6",
+      "npm:@aws-sdk/client-sqs@^3.609.0": "npm:@aws-sdk/client-sqs@3.609.0_@aws-sdk+client-sts@3.609.0__@aws-sdk+client-sso-oidc@3.609.0___@aws-sdk+client-sts@3.609.0___@aws-sdk+client-sts@3.609.0_@aws-sdk+client-sso-oidc@3.609.0__@aws-sdk+client-sts@3.609.0___@aws-sdk+client-sso-oidc@3.609.0____@aws-sdk+client-sts@3.609.0____@aws-sdk+client-sts@3.609.0__@aws-sdk+client-sts@3.609.0___@aws-sdk+client-sso-oidc@3.609.0____@aws-sdk+client-sts@3.609.0_____@aws-sdk+client-sso-oidc@3.609.0___@aws-sdk+client-sso-oidc@3.609.0",
       "npm:debug@^4.3.5": "npm:debug@4.3.5"
     },
     "jsr": {
-      "@bbc/sqs-consumer@11.0.0-canary.4": {
-        "integrity": "05e1b6fb8f2eadd11e7f13755a6e1152ea1739348a57b97a0e8aed7607727f5e",
+      "@bbc/sqs-consumer@11.0.0-canary.6": {
+        "integrity": "5ccec3cd9e0567ace1c899a031a3101885c1e3e9ec42d919e89bf85646a884c4",
         "dependencies": [
-          "npm:@aws-sdk/client-sqs@^3.600.0",
+          "npm:@aws-sdk/client-sqs@^3.609.0",
           "npm:debug@^4.3.5"
         ]
       }
@@ -1613,7 +1613,7 @@
   "remote": {},
   "workspace": {
     "dependencies": [
-      "jsr:@bbc/sqs-consumer@^11.0.0-canary.4"
+      "jsr:@bbc/sqs-consumer@^11.0.0-canary.6"
     ]
   }
 }
