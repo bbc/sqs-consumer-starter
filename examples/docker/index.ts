@@ -27,6 +27,7 @@ app.listen(port, () => {
       debug(msg);
     },
     waitTimeSeconds: 1,
+    messageSystemAttributeNames: ['All'],
   };
   const consumer = initConsumer(options);
 

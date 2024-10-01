@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "sqs-consumer": "11.0.0-canary.6"
+    "express": "^4.21.0",
+    "sqs-consumer": "11.1.0-canary.2"
   }
 }
