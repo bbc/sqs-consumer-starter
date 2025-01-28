@@ -14,7 +14,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@bbc/sqs-consumer": "npm:@jsr/bbc__sqs-consumer@11.1.0-canary.2",
+    "@bbc/sqs-consumer": "npm:@jsr/bbc__sqs-consumer@11.5.0-canary.2",
     "debug": "^4.3.5",
     "express": "^4.19.2"
   }
