@@ -21,6 +21,7 @@ app.listen(port, () => {
     sqs: sqsClient,
     handleMessage: async (msg) => {
       debug('Handled a message...');
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       debug(msg);
     },
   };

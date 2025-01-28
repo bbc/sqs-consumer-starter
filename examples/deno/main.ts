@@ -22,6 +22,7 @@ const options = {
   sqs,
   handleMessage: async (msg) => {
     console.log('Handled a message...');
+      await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log(msg);
   },
 };
