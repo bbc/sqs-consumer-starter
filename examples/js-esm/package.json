@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "express": "^4.21.0",
-    "sqs-consumer": "11.5.0-canary.2"
+    "sqs-consumer": "11.6.0-canary.1"
   }
 }
