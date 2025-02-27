@@ -1,20 +1,19 @@
-const express = require('express');
+const { Hono } = require('hono');
 const path = require('path');
 const debug = require('debug')('sqs-consumer');
 
 const sqsClient = require('./sqs');
 const startConsumer = require('./consumer');
 
-const app = express();
+const app = new Hono();
 const port = 3010;
 
-app.use(express.static('static'));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve('pages/index.html'));
+app.get('/', (c) => {
+  return c.html(require('fs').readFileSync(path.resolve('pages/index.html'), 'utf8'));
 });
 
-app.listen(port, () => {
+require('node:http').createServer(app.fetch).listen(port, () => {
   // Edit these options if you need to
   const options = {
     queueUrl: 'some-url',

@@ -1,5 +1,5 @@
 {
-  "name": "sqs-consumer-starter",
+  "name": "sqs-consumer-starter-js-esm",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -7,7 +7,8 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.21.0",
+    "debug": "^4.4.0",
+    "hono": "^4.7.2",
     "sqs-consumer": "11.6.0-canary.1"
   }
 }

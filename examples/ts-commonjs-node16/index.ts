@@ -1,20 +1,21 @@
-import express, { static as expressStatic } from 'express';
+import { Hono } from 'hono';
 import { resolve } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { createServer } from 'node:http';
 import debug from 'debug';
 
-import sqs from './sqs.js';
-import initConsumer from './consumer.js';
+import sqs from './sqs';
+import initConsumer from './consumer';
 
-const app = express();
+const app = new Hono();
 const port = 3010;
 
-app.use(expressStatic('static'));
 
-app.get('/', (req, res) => {
-  res.sendFile(resolve('pages/index.html'));
+app.get('/', (c) => {
+  return c.html(readFileSync(resolve('pages/index.html'), 'utf8'));
 });
 
-app.listen(port, () => {
+createServer(app.fetch).listen(port, () => {
   // Edit these options if you need to
   const options = {
     queueUrl: 'some-url',
