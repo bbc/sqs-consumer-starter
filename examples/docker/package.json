@@ -8,13 +8,13 @@
     "start": "npm run docker:up && DEBUG=sqs-consumer,sqs-consumer-starter tsx index.ts"
   },
   "dependencies": {
-    "express": "^4.21.0",
-    "sqs-consumer": "11.6.0-canary.1"
+    "express": "^5.1.0",
+    "sqs-consumer": "14.0.1-canary.5"
   },
   "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/node": "^20.12.7",
-    "typescript": "^5.4.5",
-    "tsx": "4.7.3"
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.6.2",
+    "typescript": "^5.9.3",
+    "tsx": "4.20.6"
   }
 }

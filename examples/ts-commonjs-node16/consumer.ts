@@ -1,6 +1,6 @@
-import { Consumer } from 'sqs-consumer';
+import { Consumer, type ConsumerOptions } from 'sqs-consumer';
 
-const initConsumer = (options) => {
+const initConsumer = (options: ConsumerOptions) => {
   console.log('Starting SQS Consumer now...');
 
   const consumer = new Consumer(options);

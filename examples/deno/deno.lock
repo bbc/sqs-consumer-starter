@@ -2,7 +2,7 @@
   "version": "4",
   "workspace": {
     "dependencies": [
-      "jsr:@bbc/sqs-consumer@^11.6.0-canary.1"
+      "jsr:@bbc/sqs-consumer@^14.0.1-canary.5"
     ]
   }
 }

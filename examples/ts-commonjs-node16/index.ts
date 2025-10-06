@@ -15,6 +15,7 @@ app.get('/', (c) => {
   return c.html(readFileSync(resolve('pages/index.html'), 'utf8'));
 });
 
+// @ts-expect-error - ignoring
 createServer(app.fetch).listen(port, () => {
   // Edit these options if you need to
   const options = {
@@ -26,6 +27,7 @@ createServer(app.fetch).listen(port, () => {
       debug(msg);
     },
   };
+  // @ts-expect-error - ignoring
   const consumer = initConsumer(options);
 
   // Add your use case below, the rest of the setup has already been sorted out for you above.

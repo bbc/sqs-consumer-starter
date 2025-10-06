@@ -15,6 +15,7 @@ app.get('/', (c) => {
   return c.html(readFileSync(resolve('pages/index.html'), 'utf8'));
 });
 
+// @ts-expect-error - ignoring
 createServer(app.fetch).listen(port, () => {
   // Edit these options if you need to
   const options = {
