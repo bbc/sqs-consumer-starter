@@ -1,5 +1,5 @@
 {
-  "name": "sqs-consumer-starter-js-esm",
+  "name": "@sqs-consumer-starter/js-esm-example",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,6 +9,6 @@
   "dependencies": {
     "debug": "^4.4.3",
     "hono": "^4.9.10",
-    "sqs-consumer": "14.0.1-canary.5"
+    "sqs-consumer": "14.2.0-canary.3"
   }
 }

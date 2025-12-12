@@ -1,12 +1,27 @@
 {
   "name": "sqs-consumer-starter",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Examples and automated tests for sqs-consumer and sqs-producer",
+  "private": true,
+  "engines": {
+    "node": ">=22.x"
   },
-  "keywords": [],
+  "scripts": {
+    "test": "npm run test --workspaces --if-present",
+    "test:system": "npm run test --workspace @sqs-consumer-starter/system-tests",
+    "examples": "npm run start --workspaces --if-present"
+  },
+  "workspaces": [
+    "examples/*",
+    "packages/*"
+  ],
+  "keywords": [
+    "aws",
+    "sqs",
+    "consumer",
+    "producer",
+    "examples"
+  ],
   "author": "",
   "license": "ISC"
 }

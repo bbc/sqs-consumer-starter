@@ -1,5 +1,5 @@
 {
-  "name": "sqs-consumer-starter",
+  "name": "@sqs-consumer-starter/docker-example",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "express": "^5.1.0",
-    "sqs-consumer": "14.0.1-canary.5"
+    "sqs-consumer": "14.2.0-canary.3"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",

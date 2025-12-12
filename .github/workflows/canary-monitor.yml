@@ -1,0 +1,64 @@
+name: Canary Monitor
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  update-and-test:
+    name: Update canary dependencies and run tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Read latest canary tag
+        id: canary
+        run: |
+          VERSION=$(npm view sqs-consumer dist-tags.canary)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Update sqs-consumer dependencies
+        run: node scripts/update-canary.mjs
+        env:
+          CANARY_VERSION: ${{ steps.canary.outputs.version }}
+
+      - name: Detect dependency changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install workspace dependencies
+        if: steps.changes.outputs.changed == 'true'
+        run: npm install
+
+      - name: Run consumer/producer system tests
+        if: steps.changes.outputs.changed == 'true'
+        run: npm run test:system
+
+      - name: Create pull request with updates
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: 'chore: update sqs-consumer canary'
+          branch: chore/update-sqs-canary
+          title: 'chore: update sqs-consumer canary'
+          body: |
+            Automated update triggered by the latest sqs-consumer canary release.
+            - Uses sqs-consumer version `${{ steps.canary.outputs.version }}`
+            - Runs the shared system tests to validate sqs-consumer and sqs-producer

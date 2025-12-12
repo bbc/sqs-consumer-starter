@@ -1,0 +1,20 @@
+{
+  "name": "@sqs-consumer-starter/system-tests",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.948.0",
+    "aws-sdk-client-mock": "^4.1.0",
+    "sqs-consumer": "14.2.0-canary.3",
+    "sqs-producer": "^8.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
+  }
+}

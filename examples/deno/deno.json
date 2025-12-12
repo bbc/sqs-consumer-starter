@@ -3,6 +3,6 @@
     "dev": "deno run --watch main.ts"
   },
   "imports": {
-    "@bbc/sqs-consumer": "jsr:@bbc/sqs-consumer@^14.0.1-canary.5"
+    "@bbc/sqs-consumer": "jsr:@bbc/sqs-consumer@^14.2.0-canary.3"
   }
 }

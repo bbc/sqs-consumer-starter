@@ -1,5 +1,5 @@
 {
-  "name": "sqs-consumer-starter-js-commonjs",
+  "name": "@sqs-consumer-starter/ts-commonjs-example",
   "version": "0.0.0",
   "private": true,
   "type": "commonjs",
@@ -9,7 +9,7 @@
   "dependencies": {
     "debug": "^4.4.3",
     "hono": "^4.9.10",
-    "sqs-consumer": "14.0.1-canary.5"
+    "sqs-consumer": "14.2.0-canary.3"
   },
   "devDependencies": {
     "@types/node": "^24.6.2",

@@ -1,5 +1,5 @@
 {
-  "name": "sqs-consumer-starter-bun",
+  "name": "@sqs-consumer-starter/bun-example",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "hono": "^4.9.10",
-    "@bbc/sqs-consumer": "npm:@jsr/bbc__sqs-consumer@14.0.1-canary.5"
+    "debug": "^4.4.3",
+    "sqs-consumer": "14.2.0-canary.3"
   },
   "devDependencies": {
     "@types/node": "^24.6.2",
