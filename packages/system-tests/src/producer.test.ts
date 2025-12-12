@@ -1,5 +1,5 @@
 import { Producer } from 'sqs-producer';
-import { SQSClient, SendMessageCommand } from '@aws-sdk/client-sqs';
+import { SQSClient, SendMessageBatchCommand } from '@aws-sdk/client-sqs';
 import { mockClient } from 'aws-sdk-client-mock';
 import { beforeEach, describe, expect, it } from 'vitest';
 
@@ -13,7 +13,7 @@ beforeEach(() => {
 describe('sqs-producer integration surface', () => {
   it('sends a message payload with attributes', async () => {
     const sqs = new SQSClient({ region: 'us-east-1' });
-    sqsMock.on(SendMessageCommand).resolves({});
+    sqsMock.on(SendMessageBatchCommand).resolves({});
 
     const producer = Producer.create({
       queueUrl,
@@ -31,12 +31,14 @@ describe('sqs-producer integration surface', () => {
       }
     });
 
-    const calls = sqsMock.commandCalls(SendMessageCommand);
+    const calls = sqsMock.commandCalls(SendMessageBatchCommand);
     expect(calls).toHaveLength(1);
     const [{ args }] = calls;
     expect(args[0]?.input?.QueueUrl).toBe(queueUrl);
-    expect(args[0]?.input?.MessageBody).toContain('"hello":"world"');
-    expect(args[0]?.input?.MessageAttributes?.source).toEqual({
+    expect(args[0]?.input?.Entries).toHaveLength(1);
+    const [entry] = args[0]?.input?.Entries ?? [];
+    expect(entry?.MessageBody).toContain('"hello":"world"');
+    expect(entry?.MessageAttributes?.source).toEqual({
       DataType: 'String',
       StringValue: 'system-tests'
     });

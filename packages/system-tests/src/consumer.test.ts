@@ -15,17 +15,18 @@ describe('sqs-consumer integration surface', () => {
     const sqs = new SQSClient({ region: 'us-east-1' });
     const body = JSON.stringify({ hello: 'world' });
 
-    sqsMock.on(ReceiveMessageCommand).resolvesOnce({
-      Messages: [
-        {
-          MessageId: '1',
-          ReceiptHandle: 'abc',
-          Body: body
-        }
-      ]
-    });
-
-    sqsMock.on(ReceiveMessageCommand).resolves({ Messages: [] });
+    sqsMock
+      .on(ReceiveMessageCommand)
+      .resolvesOnce({
+        Messages: [
+          {
+            MessageId: '1',
+            ReceiptHandle: 'abc',
+            Body: body
+          }
+        ]
+      })
+      .resolves({ Messages: [] });
     sqsMock.on(DeleteMessageCommand).resolves({});
 
     const processedBodies: string[] = [];
@@ -35,6 +36,7 @@ describe('sqs-consumer integration surface', () => {
       sqs,
       handleMessage: async (message) => {
         processedBodies.push(message.Body ?? '');
+        return message;
       }
     });
 
