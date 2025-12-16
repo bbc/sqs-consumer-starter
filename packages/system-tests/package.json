@@ -10,7 +10,7 @@
   "dependencies": {
     "@aws-sdk/client-sqs": "^3.948.0",
     "aws-sdk-client-mock": "^4.1.0",
-    "sqs-consumer": "14.2.0-canary.3",
+    "sqs-consumer": "14.2.1-canary.5",
     "sqs-producer": "^8.0.1"
   },
   "devDependencies": {

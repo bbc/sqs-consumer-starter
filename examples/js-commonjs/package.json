@@ -9,6 +9,6 @@
   "dependencies": {
     "hono": "^4.9.10",
     "debug": "^4.4.3",
-    "sqs-consumer": "14.2.0-canary.3"
+    "sqs-consumer": "14.2.1-canary.5"
   }
 }
